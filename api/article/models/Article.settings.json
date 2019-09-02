@@ -1,0 +1,48 @@
+{
+  "connection": "default",
+  "collectionName": "article",
+  "info": {
+    "name": "article",
+    "description": ""
+  },
+  "options": {
+    "timestamps": [
+      "createdAt",
+      "updatedAt"
+    ]
+  },
+  "attributes": {
+    "title": {
+      "unique": true,
+      "default": "Titile 1",
+      "required": true,
+      "type": "string"
+    },
+    "slug": {
+      "default": "slug",
+      "type": "string"
+    },
+    "user": {
+      "model": "user",
+      "via": "articles",
+      "plugin": "users-permissions"
+    },
+    "category": {
+      "model": "category",
+      "via": "articles"
+    },
+    "tags": {
+      "collection": "tag",
+      "via": "articles"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "description": {
+      "default": "text",
+      "type": "text"
+    }
+  }
+}
